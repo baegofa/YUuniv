@@ -10,6 +10,6 @@ public class WordGameApp {
 		System.out.println("이제 된걸까");
 		System.out.println("이제 된걸까");
 		System.out.println("이제 된걸까");
-		System.out.println("이제 된걸까5");
+		System.out.println("이제 된걸까5444");
 	}
 }
