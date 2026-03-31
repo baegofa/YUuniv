@@ -5,5 +5,6 @@ public class WordGameApp {
 		System.out.println("helddlo");
 		System.out.println("byebㅇㄹㄹㄹㅇye");
 		System.out.println("good night");
+		System.out.println("good nigdddht");
 	}
 }
