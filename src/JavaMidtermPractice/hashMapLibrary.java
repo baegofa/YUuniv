@@ -19,6 +19,8 @@ class Library{
 	Iterator<String> it;	
 	
 	Library (){
+		keys = bookLibrary.keySet();
+		it = keys.iterator();
 		scanner = new Scanner(System.in);												//Scanner scanner = new Scanner(System.in);을 썼었는데 안되는 이유는 생성자 안의 scanner은 레퍼런스 변수라 stack 메모리에
 		bookLibrary = new HashMap<String,Integer>();										//저장되어 메소드를 벗어나면 사라짐 따라서 생성자 안에서 만들어진 객체는 가비지가 되어버림 생성자 바깥에 선언을 하는 이유!!!
 	}
@@ -52,8 +54,6 @@ class Library{
 	
 	//도서 관리 현황 출력
 	public void printBookDB(String title, int mode) {
-		Set<String> keys = bookLibrary.keySet();
-		Iterator<String> it = keys.iterator();
 		if(mode == PRINT_ALL) {
 			System.out.println("[도서 현황]");
 			while(it.hasNext()) {
