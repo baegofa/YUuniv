@@ -6,7 +6,7 @@ import java.lang.Math;
 abstract class GameObject{
 	protected int distance;
 	protected int x, y;
-	
+	//생성자
 	public GameObject(int startX, int startY, int distance) {
 		this.x = startX;
 		this.y = startY;
