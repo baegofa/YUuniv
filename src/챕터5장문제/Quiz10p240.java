@@ -46,10 +46,29 @@ class SystemRun {
 		cream.print();
 		sugar.print();
 	}
-	
-	boolean exhaustIngredient() {
+	//다방커피
+	boolean exhaustIngredient(IngredientBox coffee, IngredientBox cream, IngredientBox sugar) {
 		if(coffee.isEmpty()||cream.isEmpty()||sugar.isEmpty()) {
 			System.out.println("원료가 부족합니다.");
+			ingredientTable();
+			return true;
+			}
+		return false;
+	}
+	//설탕커피
+	boolean exhaustIngredient(IngredientBox coffee, IngredientBox sugar) {
+		if(coffee.isEmpty()||sugar.isEmpty()) {
+			System.out.println("원료가 부족합니다.");
+			ingredientTable();
+			return true;
+			}
+		return false;
+	}
+	//블랙커피
+	boolean exhaustIngredient(IngredientBox coffee) {
+		if(coffee.isEmpty()) {
+			System.out.println("원료가 부족합니다.");
+			ingredientTable();
 			return true;
 			}
 		return false;
@@ -62,20 +81,22 @@ class SystemRun {
 		while(stop) {
 			System.out.println("다방커피:1, 설탕 커피:2, 블랙 커피:3, 종료:4>>");
 			input = scanner.nextInt();
-			if(exhaustIngredient()) {}
 			switch(input) {
 			case 1:
+				if(exhaustIngredient(coffee,cream, sugar)) break;
 				coffee.consume();
 				cream.consume();
 				sugar.consume();
 				ingredientTable();
 				break;
 			case 2:
+				if(exhaustIngredient(coffee, sugar)) break;
 				coffee.consume();
 				sugar.consume();
 				ingredientTable();
 				break;
 			case 3:
+				if(exhaustIngredient(coffee)) break;
 				coffee.consume();
 				ingredientTable();
 				break;
