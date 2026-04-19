@@ -88,19 +88,6 @@ class Fish extends GameObject{
 	}
 }
 
-class Backgraound{
-	char[][] field;
-	
-	public Backgraound() {
-		field = new char[10][20];
-		for(int i=0;i<field.length;++i) {
-			for (int j=0;j<field[i].length;++j) {
-				field[i][j] = '-';
-			}
-		}
-	}	
-}
-
 //게임 구현
 class Game{
 	char[][] field;
@@ -119,11 +106,12 @@ class Game{
 		fish = new Fish(fishFirstX,fishFirstY);
 		//물고기 move 타임 생성
 		fishMove = fishMovingTime();
+		//필드 생성
+		field = new char[10][20];
 	}
 	
 	//필드 생성
 	void makeField() {
-		field = new char[10][20];
 		for(int i=0;i<field.length;++i) {
 			for (int j=0;j<field[i].length;++j) {
 				field[i][j] = '-';
