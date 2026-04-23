@@ -24,7 +24,8 @@ public class TestPrivate{
 		Circle p;
 		p = new Circle(10);
 		p.paint();
-		
+		System.out.println(p.toString());
+		System.out.println(p.hashCode());
 	}
 
 }

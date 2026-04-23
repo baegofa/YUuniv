@@ -19,8 +19,11 @@ class IngredientBox extends Box2 {
 		this.name = name;
 	}
 	public boolean consume() {
-		if(size == 0) return false;
 		--size;
+		if(size == 0) {
+			System.out.println(name+"가 부족합니다.");
+			return false;
+		}
 		return true;
 	}
 	public void print() {
@@ -106,6 +109,7 @@ class SystemRun {
 				break;
 			}
 		}
+		scanner.close();
 	}
 	
 }
