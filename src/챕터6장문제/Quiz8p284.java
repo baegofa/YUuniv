@@ -8,12 +8,13 @@ class Sort{
 	Scanner sc;
 	StringTokenizer st;
 	String[] inputArray;
-	int wrongIndex;
+	int wrongIndex,count;
 	
 	Sort(){
 		input = "";
 		sc = new Scanner(System.in);
-		int wrongIndex = 0;
+		wrongIndex = 0;
+		count = 0;
 	}
 	
 	//입력
@@ -23,20 +24,25 @@ class Sort{
 		return input;
 	}
 	
-	//문자열 배열로 쪼개는 메소드
+	//토큰으로 쪼개는 메소드
 	boolean devide() {
-		inputArray = input.split(" ");
+		st = new StringTokenizer(input," ");
 		return true;
 	}
 	//문자열 크기 비교 결과
 	boolean decide() {
-		for(int i=1;i<inputArray.length;++i) {
-			if(Integer.parseInt(inputArray[i])>=Integer.parseInt(inputArray[i-1])) {
-				continue;
+		String tem1, tem2;
+		count = 1;
+		tem1 = st.nextToken();
+		while(st.hasMoreTokens()) {
+			tem2 = st.nextToken();
+			if(Integer.parseInt(tem1)>=Integer.parseInt(tem2)) {
+				return false;
 			}
 			else {
-				wrongIndex = i+1;
-				return false;
+				++count;
+				tem1 = tem2;
+				continue;
 			}
 		}
 		return true;
@@ -48,12 +54,13 @@ class Sort{
 			if(input.equals("그만")) break;
 			devide();
 			if(decide()) {
-				System.out.println("정수들이 증가순으로 되어 있음!");
+				System.out.println("no problem");
 			}
 			else {
-				System.out.println("정수들이 증가순으로 되어 있지 않음!"+wrongIndex+"째 부터");
+				System.out.println("증가순으로 안되어 있음."+(count+1)+"째 부터");
 			}
 		}
+		
 	}
 }
 //main
