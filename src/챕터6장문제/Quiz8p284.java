@@ -56,7 +56,7 @@ class Sort{
 		}
 	}
 }
-
+//main
 public class Quiz8p284 {
 	public static void main(String[] args) {
 		Sort s = new Sort();
