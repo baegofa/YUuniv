@@ -12,12 +12,16 @@ public class GamblingGame {
 	Scanner scanner = new Scanner(System.in);
 	player[] player;
 	String name,input;
-	String[] RGB = {"R","G","B"};
+	String[] RGB;
 	int[] result;
 	
 	GamblingGame() {
 		player = new player[2];
 		result = new int[3];
+		RGB = new String[3];
+		RGB[0] = "R";
+		RGB[1] = "G";
+		RGB[2] = "B";
 	}
 	//선수 입력
 	public void addPlayer() {
@@ -56,7 +60,7 @@ public class GamblingGame {
 			printRGB(count%2);
 			++count;
 		}while(decideWin(result)!=true);
-		System.out.println("\n"+player[count%2].name+"님이 우승하셨습니다.");
+		System.out.println("\n"+player[(count%2)-1].name+"님이 우승하셨습니다.");
 	}
 
 	public static void main(String[] args) {
